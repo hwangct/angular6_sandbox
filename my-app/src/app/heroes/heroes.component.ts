@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { DataService } from '../data.service';
+import { HeroChildComponent } from '../hero-child/hero-child.component';
 
 @Component({
   selector: 'app-heroes',
@@ -10,11 +12,23 @@ import { HeroService } from '../hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
+  parentmsg = 'Son, this is an Input example';
+  parentmsg2: string;
+  parentmsg3: string;
+  msg: string;
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService, private data: DataService) { }
+
+  // Child Component
+  @ViewChild(HeroChildComponent) child;
 
   ngOnInit() {
     this.getHeroes();
+    this.data.currentMessage.subscribe(msg => this.msg = msg);
+  }
+
+  ngAfterViewInit() {
+    this.parentmsg3 = this.child.childmsg2;
   }
 
   getHeroes(): void {
@@ -36,4 +50,7 @@ export class HeroesComponent implements OnInit {
     this.heroService.deleteHero(hero).subscribe();
   }
 
+  receiveMessage($event) {
+    this.parentmsg2 = $event;
+  }
 }

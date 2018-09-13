@@ -1,0 +1,14 @@
+<div class="child">
+  <h2>Child Component</h2>
+  <p>
+    Message from parent (OnInit): {{message}}
+  </p>
+
+  <p>
+    <button (click)="sendMessage()" class="button">Send Message to Parent</button>
+    <button (click)="newMessage()">Send Message to all Subscribers</button>
+  </p>
+  <app-hero-grandchild></app-hero-grandchild>
+</div>
+
+
