@@ -8,7 +8,14 @@ import { MessageService } from '../message.service';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor(public messageService: MessageService) { }
+  dateString: string;
+  constructor(public messageService: MessageService) {
+    let count = 0;
+    setInterval(() => {
+      count += 1;
+      this.dateString = String(count);
+    }, 1000);
+   }
 
   ngOnInit() {
   }
