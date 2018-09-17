@@ -14,7 +14,12 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
+<<<<<<< HEAD
 import { PassingDataComponent } from './passing-data/passing-data.component';
+=======
+import { HeroChildComponent } from './hero-child/hero-child.component';
+import { HeroGrandchildComponent } from './hero-grandchild/hero-grandchild.component';
+>>>>>>> ecaea77d8f1c4a810cf0b7a731d90dc076ab6d7e
 
 @NgModule({
   imports: [
@@ -37,7 +42,12 @@ import { PassingDataComponent } from './passing-data/passing-data.component';
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent,
+<<<<<<< HEAD
     PassingDataComponent
+=======
+    HeroChildComponent,
+    HeroGrandchildComponent
+>>>>>>> ecaea77d8f1c4a810cf0b7a731d90dc076ab6d7e
   ],
   bootstrap: [AppComponent]
 })

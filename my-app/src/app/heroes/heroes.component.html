@@ -1,20 +1,31 @@
-<h2>My Heroes</h2>
-
 <div>
-    <label>Hero name:
-    <input #heroName />
-  </label>
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="add(heroName.value); heroName.value=''">
-    add
-  </button>
-</div>
+    <h2>My Heroes</h2>
 
-<ul class="heroes">
-    <li *ngFor="let hero of heroes">
-        <a routerLink="/detail/{{hero.id}}">
-            <span class="badge">{{hero.id}}</span> {{hero.name}}
-        </a>
-        <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
-    </li>
-</ul>
+    <div>
+        <label>Hero name:
+        <input #heroName />
+    </label>
+        <!-- (click) passes input value to add() and then clears the input -->
+        <button (click)="add(heroName.value); heroName.value=''">
+        add
+    </button>
+    </div>
+
+    <ul class="heroes">
+        <li *ngFor="let hero of heroes">
+            <a routerLink="/detail/{{hero.id}}">
+                <span class="badge">{{hero.id}}</span> {{hero.name}}
+            </a>
+            <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
+        </li>
+    </ul>
+
+    <div class="parent">
+        <h2>Parent Component</h2>
+        <p>Message from @Output (eventEmitter): {{parentmsg2}}</p>
+        <p>Message from Child (after init): {{parentmsg3}}</p>
+        <p>Message from Service (observable): {{msg}}</p>
+        <app-hero-child [message]="parentmsg" (messageEvent)="receiveMessage($event)"> </app-hero-child>
+    </div>
+    
+</div>
